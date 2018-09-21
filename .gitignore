@@ -1,0 +1,8 @@
+/WeChatPrinter/bin/*
+/WeChatPrinter/obj/*
+# compiled files
+obj
+bin
+# user files
+.user
+.suo
