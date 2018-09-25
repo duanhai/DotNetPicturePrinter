@@ -31,48 +31,86 @@ namespace WeChatPrinter
         /// </summary>
         private void InitializeComponent()
         {
-            int MARGIN_LEFT = 0;
-            int MARGIN_RIGHT = 0;
-            int MARGIN_TOP = 0;
-            int MARGIN_BOTTOM = 0;
             this.button1 = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(126, 129);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(30, 68);
+            this.button1.Margin = new System.Windows.Forms.Padding(6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 30);
+            this.button1.Size = new System.Drawing.Size(150, 45);
             this.button1.TabIndex = 0;
             this.button1.Text = "照片打印机";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // printDocument1
+            // label1
             // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintDocument2_PrintPage);
-            this.printDocument1.DefaultPageSettings.PaperSize = new PaperSize("L 88X125mm", 350, 500);
-            this.printDocument1.DefaultPageSettings.Margins = new Margins(MARGIN_LEFT, MARGIN_RIGHT, MARGIN_TOP, MARGIN_BOTTOM);
-
-            //xxx
-            //var resolution = new PrinterResolution();
-            //resolution.Kind = PrinterResolutionKind.Custom;
-            //resolution.X = 100;
-            //resolution.Y = 100;
-            //this.printDocument1.DefaultPageSettings.PrinterResolution = resolution;
-            //打印开始前            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(26, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(262, 24);
+            this.label1.TabIndex = 1;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(30, 134);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(506, 101);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.Text = "请求方法支持get/post, api路由：① /api/print(参数imgUrl) ② /api/status 调用详细信息请参考返回数据";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.Location = new System.Drawing.Point(0, 0);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(100, 23);
+            this.linkLabel1.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(30, 287);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(202, 24);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "请求打印图片地址";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(30, 325);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(502, 86);
+            this.richTextBox1.TabIndex = 5;
+            this.richTextBox1.Text = "";
+            // 
             // Form1
-
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 348);
+            this.ClientSize = new System.Drawing.Size(568, 522);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "照片打印机";
+            this.Margin = new System.Windows.Forms.Padding(6);
+            this.Name = "Form1";
             this.Text = "照片打印机";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -85,6 +123,11 @@ namespace WeChatPrinter
 
         private System.Windows.Forms.Button button1;
         public System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 
