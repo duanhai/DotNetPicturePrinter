@@ -25,6 +25,7 @@ namespace WeChatPrinter
 
         private static Form1 fm1;
         private static string infomationStr=null;
+        private static string respTime = null;
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
@@ -155,13 +156,15 @@ namespace WeChatPrinter
 
 
 
-                        infomationStr += DateTime.Now.ToString();
+                        //infomationStr += DateTime.Now.ToString();
+                        respTime = DateTime.Now.ToString();
                     }
                     //获取状态
                     else if(request.RawUrl == "/api/status")
                     {
                         infomationStr = PrintHelper.GetPrinterStatus(fm1.printDocument1.PrinterSettings.PrinterName);
-                        infomationStr += DateTime.Now.ToString();
+                        //infomationStr += DateTime.Now.ToString();
+                        respTime = DateTime.Now.ToString();
                         other = null;
                     }
 
@@ -231,14 +234,17 @@ namespace WeChatPrinter
 
 
 
-                        infomationStr += DateTime.Now.ToString();
+                        //infomationStr += DateTime.Now.ToString();
+                        respTime = DateTime.Now.ToString();
 
                     }
                     else if (cmd == "status")
                     {
                         //MessageBox.Show(PrintHelper.GetPrinterStatus(fm1.printDocument1.PrinterSettings.PrinterName));
                         infomationStr = PrintHelper.GetPrinterStatus(fm1.printDocument1.PrinterSettings.PrinterName);
-                        infomationStr += DateTime.Now.ToString();
+                        //infomationStr += DateTime.Now.ToString();
+                        respTime = DateTime.Now.ToString();
+
                         other = null;
 
                     }
@@ -256,7 +262,7 @@ namespace WeChatPrinter
 
             {
 
-                HttpHelper.WriteJson(response, 200, infomationStr,other);//默认输出
+                HttpHelper.WriteJson(response, 200, infomationStr,other,respTime);//默认输出
 
             }
 

@@ -9,7 +9,7 @@ namespace WeChatPrinter
 {
     class HttpHelper
     {
-        public static void WriteJson(HttpListenerResponse response, int status, string message, object sbj = null)
+        public static void WriteJson(HttpListenerResponse response, int status, string message, object sbj = null,string respTime="")
 
         {
 
@@ -17,7 +17,7 @@ namespace WeChatPrinter
 
             response.ContentType = "application/json;charset=utf8";
 
-            var data = new { status = status, message = message, data = sbj };
+            var data = new { code = status, msg = message, data = sbj,respTime=respTime };
 
             string strJson = Newtonsoft.Json.JsonConvert.SerializeObject(data);
 
