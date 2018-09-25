@@ -91,8 +91,6 @@ C:\Users\NanLi\Desktop\DotNetPicturePrinter\WeChatPrinter\obj\Debug\WeChatPrinte
 C:\Users\NanLi\Desktop\DotNetPicturePrinter\WeChatPrinter\obj\Debug\WeChatPrinter.exe
 C:\Users\NanLi\Desktop\DotNetPicturePrinter\WeChatPrinter\obj\Debug\WeChatPrinter.pdb
 C:\Users\duanhai\Desktop\WeChatPrinter\WeChatPrinter\bin\Debug\WeChatPrinter.exe.config
-C:\Users\duanhai\Desktop\WeChatPrinter\WeChatPrinter\bin\Debug\WeChatPrinter.exe.manifest
-C:\Users\duanhai\Desktop\WeChatPrinter\WeChatPrinter\bin\Debug\WeChatPrinter.application
 C:\Users\duanhai\Desktop\WeChatPrinter\WeChatPrinter\bin\Debug\WeChatPrinter.exe
 C:\Users\duanhai\Desktop\WeChatPrinter\WeChatPrinter\bin\Debug\WeChatPrinter.pdb
 C:\Users\duanhai\Desktop\WeChatPrinter\WeChatPrinter\bin\Debug\Microsoft.Owin.dll
@@ -122,8 +120,11 @@ C:\Users\duanhai\Desktop\WeChatPrinter\WeChatPrinter\obj\Debug\WeChatPrinter.For
 C:\Users\duanhai\Desktop\WeChatPrinter\WeChatPrinter\obj\Debug\WeChatPrinter.Properties.Resources.resources
 C:\Users\duanhai\Desktop\WeChatPrinter\WeChatPrinter\obj\Debug\WeChatPrinter.csproj.GenerateResource.cache
 C:\Users\duanhai\Desktop\WeChatPrinter\WeChatPrinter\obj\Debug\WeChatPrinter.csproj.CoreCompileInputs.cache
-C:\Users\duanhai\Desktop\WeChatPrinter\WeChatPrinter\obj\Debug\WeChatPrinter.exe.manifest
-C:\Users\duanhai\Desktop\WeChatPrinter\WeChatPrinter\obj\Debug\WeChatPrinter.application
 C:\Users\duanhai\Desktop\WeChatPrinter\WeChatPrinter\obj\Debug\WeChatPrinter.csproj.CopyComplete
 C:\Users\duanhai\Desktop\WeChatPrinter\WeChatPrinter\obj\Debug\WeChatPrinter.exe
 C:\Users\duanhai\Desktop\WeChatPrinter\WeChatPrinter\obj\Debug\WeChatPrinter.pdb
+C:\Users\duanhai\Desktop\WeChatPrinter\WeChatPrinter\obj\Debug\WeChatPrinter.TrustInfo.xml
+C:\Users\duanhai\Desktop\WeChatPrinter\WeChatPrinter\obj\Debug\WeChatPrinter.exe.manifest
+C:\Users\duanhai\Desktop\WeChatPrinter\WeChatPrinter\bin\Debug\WeChatPrinter.exe.manifest
+C:\Users\duanhai\Desktop\WeChatPrinter\WeChatPrinter\bin\Debug\WeChatPrinter.application
+C:\Users\duanhai\Desktop\WeChatPrinter\WeChatPrinter\obj\Debug\WeChatPrinter.application
