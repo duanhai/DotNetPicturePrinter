@@ -35,10 +35,32 @@ namespace WeChatPrinter
         {
             InitializeComponent();
             //printDocument1.Print();
+            initPrinter();
+            CheckForIllegalCrossThreadCalls = false;
+            string myIpAddress = IpHelper.GetLocalIP();
+            this.label1.Text = "ip地址： " + myIpAddress;
 
         }
 
        
+        private void initPrinter()
+        {
+            //xxx
+            //var resolution = new PrinterResolution();
+            //resolution.Kind = PrinterResolutionKind.Custom;
+            //resolution.X = 100;
+            //resolution.Y = 100;
+            //this.printDocument1.DefaultPageSettings.PrinterResolution = resolution;
+            //打印开始前            // 
+            // Form1
+            int MARGIN_LEFT = 0;
+            int MARGIN_RIGHT = 0;
+            int MARGIN_TOP = 0;
+            int MARGIN_BOTTOM = 0;
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.PrintDocument2_PrintPage);
+            this.printDocument1.DefaultPageSettings.PaperSize = new PaperSize("L 88X125mm", 350, 500);
+            this.printDocument1.DefaultPageSettings.Margins = new Margins(MARGIN_LEFT, MARGIN_RIGHT, MARGIN_TOP, MARGIN_BOTTOM);
+        }
         private void PrintDocument2_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             //WebRequest webreq = WebRequest.Create("http://xiaowechatprinter.duapp.com/GetUrl");
@@ -220,9 +242,9 @@ namespace WeChatPrinter
             {
                 return "imgUrl 为空";
             }
-
             this.imgUrl = imgUrlstr;
             this.img = theImg;
+            this.richTextBox1.Text = imgUrl;
             reloadPrint();
             //MessageBox.Show(PrintHelper.GetPrinterStatus(printDocument1.PrinterSettings.PrinterName));
 
@@ -238,6 +260,26 @@ namespace WeChatPrinter
             {
                 return "打印机下载图片失败";
             }
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
 
         }
     }
