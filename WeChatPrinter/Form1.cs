@@ -63,11 +63,6 @@ namespace WeChatPrinter
         }
         private void PrintDocument2_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            //WebRequest webreq = WebRequest.Create("http://xiaowechatprinter.duapp.com/GetUrl");
-            //WebResponse webres = webreq.GetResponse();
-            //Stream stream = webres.GetResponseStream();
-            //string imgUrl = new StreamReader(stream, Encoding.GetEncoding("utf-8")).ReadToEnd();
-            //stream.Close();
 
             if (null == imgUrl || !imgUrl.StartsWith("http"))
             {
@@ -79,39 +74,18 @@ namespace WeChatPrinter
 
             try
             {
-                //WebRequest webreq = WebRequest.Create(imgUrl);
-                //WebResponse webres = webreq.GetResponse();
-                //Stream stream = webres.GetResponseStream();
+
                 Image i;
-                //i = Image.FromStream(stream);
-                //stream.Close();
-                //this.img = i;
+   
 
                 i = this.img;
+                this.pictureBox1.Image = i;
                 if (i == null)
                 {
                     return;
                 }
                 Rectangle m = e.MarginBounds;
 
-                /*
-                int x = m.X;
-                int y = m.Y;
-                int width = (int)i.Width;
-                int height = (int)i.Height;
-
-                if ((double)i.Width / (double)i.Height > (double)m.Width / (double)m.Height) // image is wider
-                {
-                    m.Height = (int)((double)i.Height / (double)i.Width * (double)m.Width);
-                }
-                else
-                {
-                    m.Width = (int)((double)i.Width / (double)i.Height * (double)m.Height);
-                }
-                Rectangle destRect = new Rectangle(0, 0, i.Width, i.Height);
-
-                //e.Graphics.DrawImage(i, m);
-                */
 
                 i = ScaleImage(i, 294, 420); //.Size = e.PageBounds.Size;
                 Point loc = new Point(10, 15);
@@ -120,57 +94,7 @@ namespace WeChatPrinter
 
 
                 i.Dispose();
-                //e.Graphics.DrawImage(i,16,16,i.Width,i.Height);
-                //e.Graphics.DrawImage(i, destRect);
 
-                /*
-                //在图片中打印的矩形区域
-                int oldX = e.MarginBounds.X;
-                int oldY = e.MarginBounds.Y;
-                int oldWidth = e.MarginBounds.Width;
-                int oldHeight = e.MarginBounds.Height;
-                int newX = e.MarginBounds.X;
-                int newY = e.MarginBounds.Y;
-                int newWidth = oldWidth;
-                int newHeight = oldHeight;
-
-                //理论的打印高度
-                int tempHeight = oldWidth * img.Height / img.Width;
-
-                //如果理论打印高度大于纸张的高度，也就是照片偏窄
-                if (tempHeight > oldHeight)
-                {
-                    newHeight = oldHeight;
-                    newWidth = newHeight * i.Width / i.Height;
-                    newX = oldX + (oldWidth - newWidth) / 2;
-                    newY = oldY;
-                }
-
-                //如果理论打印高度小于纸张的高度，也就是照片偏宽
-                else
-                {
-                    newWidth = oldWidth;
-                    newHeight = oldWidth * i.Height / i.Width;
-                    newY = oldY + (oldHeight - newHeight) / 2;
-                    newX = oldX;
-                }
-
-
-                Console.WriteLine("======================================");
-                Console.WriteLine(e.MarginBounds);
-                Console.WriteLine(newX + " - " + newY + " - " + newWidth + " - " + newHeight);
-                Console.WriteLine("======================================");
-
-
-
-
-                //将图像缩放到屏幕中心的位置
-                e.Graphics.DrawImage(i, new Rectangle(newX, newY, newWidth, newHeight), new Rectangle(0, 0, i.Width, i.Height), GraphicsUnit.Pixel);
-                */
-
-                //printDocument1.OriginAtMargins = true;
-                //double cmToUnits = 100 / 2.54;
-                //e.Graphics.DrawImage(i, 0, 0, (float)(8.9 * cmToUnits), (float)(12.7 * cmToUnits));
 
             }
 
@@ -279,6 +203,11 @@ namespace WeChatPrinter
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

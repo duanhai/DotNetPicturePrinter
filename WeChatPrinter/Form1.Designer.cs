@@ -38,6 +38,8 @@ namespace WeChatPrinter
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -56,7 +58,7 @@ namespace WeChatPrinter
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(26, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(262, 24);
+            this.label1.Size = new System.Drawing.Size(0, 24);
             this.label1.TabIndex = 1;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -95,11 +97,22 @@ namespace WeChatPrinter
             this.richTextBox1.TabIndex = 5;
             this.richTextBox1.Text = "";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(46, 435);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(460, 662);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(568, 522);
+            this.ClientSize = new System.Drawing.Size(562, 1194);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.linkLabel1);
@@ -109,6 +122,7 @@ namespace WeChatPrinter
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form1";
             this.Text = "照片打印机";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,6 +142,7 @@ namespace WeChatPrinter
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
