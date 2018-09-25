@@ -54,8 +54,6 @@ C:\Users\duanhai\Downloads\WeChatPrinter\WeChatPrinter\WeChatPrinter\bin\Debug\W
 C:\Users\duanhai\Downloads\WeChatPrinter\WeChatPrinter\WeChatPrinter\obj\Debug\WeChatPrinter.exe.manifest
 C:\Users\duanhai\Downloads\WeChatPrinter\WeChatPrinter\WeChatPrinter\obj\Debug\WeChatPrinter.application
 C:\Users\NanLi\Desktop\DotNetPicturePrinter\WeChatPrinter\bin\Debug\WeChatPrinter.exe.config
-C:\Users\NanLi\Desktop\DotNetPicturePrinter\WeChatPrinter\bin\Debug\WeChatPrinter.exe.manifest
-C:\Users\NanLi\Desktop\DotNetPicturePrinter\WeChatPrinter\bin\Debug\WeChatPrinter.application
 C:\Users\NanLi\Desktop\DotNetPicturePrinter\WeChatPrinter\bin\Debug\WeChatPrinter.exe
 C:\Users\NanLi\Desktop\DotNetPicturePrinter\WeChatPrinter\bin\Debug\WeChatPrinter.pdb
 C:\Users\NanLi\Desktop\DotNetPicturePrinter\WeChatPrinter\bin\Debug\Microsoft.Owin.dll
@@ -85,8 +83,6 @@ C:\Users\NanLi\Desktop\DotNetPicturePrinter\WeChatPrinter\obj\Debug\WeChatPrinte
 C:\Users\NanLi\Desktop\DotNetPicturePrinter\WeChatPrinter\obj\Debug\WeChatPrinter.Properties.Resources.resources
 C:\Users\NanLi\Desktop\DotNetPicturePrinter\WeChatPrinter\obj\Debug\WeChatPrinter.csproj.GenerateResource.cache
 C:\Users\NanLi\Desktop\DotNetPicturePrinter\WeChatPrinter\obj\Debug\WeChatPrinter.csproj.CoreCompileInputs.cache
-C:\Users\NanLi\Desktop\DotNetPicturePrinter\WeChatPrinter\obj\Debug\WeChatPrinter.exe.manifest
-C:\Users\NanLi\Desktop\DotNetPicturePrinter\WeChatPrinter\obj\Debug\WeChatPrinter.application
 C:\Users\NanLi\Desktop\DotNetPicturePrinter\WeChatPrinter\obj\Debug\WeChatPrinter.csproj.CopyComplete
 C:\Users\NanLi\Desktop\DotNetPicturePrinter\WeChatPrinter\obj\Debug\WeChatPrinter.exe
 C:\Users\NanLi\Desktop\DotNetPicturePrinter\WeChatPrinter\obj\Debug\WeChatPrinter.pdb
