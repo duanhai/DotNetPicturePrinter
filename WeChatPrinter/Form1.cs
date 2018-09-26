@@ -38,7 +38,7 @@ namespace WeChatPrinter
             initPrinter();
             CheckForIllegalCrossThreadCalls = false;
             string myIpAddress = IpHelper.GetLocalIP();
-            this.label1.Text = "ip地址： " + myIpAddress;
+            this.label3.Text = "ip地址： " + myIpAddress;
 
         }
 
@@ -79,7 +79,6 @@ namespace WeChatPrinter
    
 
                 i = this.img;
-                this.pictureBox1.Image = i;
                 if (i == null)
                 {
                     return;
@@ -92,6 +91,7 @@ namespace WeChatPrinter
                 //e.Graphics.DrawImage(i, 0,0,e.PageSettings.PrintableArea.Width,e.PageSettings.PrintableArea.Height);
                 e.Graphics.DrawImage(i, loc);
 
+                //MessageBox.Show(this.printDocument1.DefaultPageSettings.PaperSize.ToString());
 
                 i.Dispose();
 
@@ -142,7 +142,7 @@ namespace WeChatPrinter
 
             this.imgUrl = imgUrlstr;
             this.img = theImg;
-            reloadPrint();
+            //reloadPrint();
             try
             {
                 var printPriview = new PrintPreviewDialog
@@ -169,7 +169,7 @@ namespace WeChatPrinter
             this.imgUrl = imgUrlstr;
             this.img = theImg;
             this.richTextBox1.Text = imgUrl;
-            reloadPrint();
+            //reloadPrint();
             //MessageBox.Show(PrintHelper.GetPrinterStatus(printDocument1.PrinterSettings.PrinterName));
 
             //MessageBox.Show("imgUrl:\n" + imgUrl);
@@ -197,17 +197,7 @@ namespace WeChatPrinter
 
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
