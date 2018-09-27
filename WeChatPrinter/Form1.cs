@@ -133,32 +133,6 @@ namespace WeChatPrinter
             printDocument1.Print();
         }
 
-        public string  PreviewDialog(string imgUrlstr, Image theImg = null)
-        {
-            if (imgUrlstr == "")
-            {
-                return "imgUrl 为空";
-            }
-
-            this.imgUrl = imgUrlstr;
-            this.img = theImg;
-            //reloadPrint();
-            try
-            {
-                var printPriview = new PrintPreviewDialog
-                {
-                    Document = printDocument1,
-                    WindowState = FormWindowState.Maximized
-                };
-                printPriview.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("打印错误，请检查打印设置！");
-            }
-
-            return "";
-        }
 
         public string Test(string imgUrlstr,Image theImg=null)
         {
