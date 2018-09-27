@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Drawing;
 using System.Web;
+using System.Drawing.Printing;
 
 namespace WeChatPrinter
 {
@@ -19,6 +20,8 @@ namespace WeChatPrinter
         public string Description { set; get; }
         public int Code  { set; get; }
     }
+
+   
     static class Program
     {
         private static HttpListener listener;
@@ -26,6 +29,36 @@ namespace WeChatPrinter
         private static Form1 fm1;
         private static string infomationStr=null;
         private static string respTime = null;
+        private static Image img = null;
+
+        public static Image ScaleImage(Image image, int maxWidth, int maxHeight)
+        {
+            var ratioX = (double)maxWidth / image.Width;
+            var ratioY = (double)maxHeight / image.Height;
+            var ratio = Math.Min(ratioX, ratioY);
+            //double ratio = 0.85;
+            //double ratioYY = 1.0;
+            var newWidth = (int)(image.Width * ratio);
+            var newHeight = (int)(image.Height * ratio);
+
+            var newImage = new Bitmap(newWidth, newHeight);
+
+            using (var graphics = Graphics.FromImage(newImage))
+                graphics.DrawImage(image, 0, 0, newWidth, newHeight);
+
+            return newImage;
+        }
+        private static void pd_PrintPage(object sender, PrintPageEventArgs ev)
+        {
+            Image i = img;
+            i = ScaleImage(i, 294, 420); //.Size = e.PageBounds.Size;
+            Point loc = new Point(10, 15);
+            //e.Graphics.DrawImage(i, 0,0,e.PageSettings.PrintableArea.Width,e.PageSettings.PrintableArea.Height);
+            Rectangle m = ev.MarginBounds;
+            ev.Graphics.DrawImage(i, loc);
+
+            Console.WriteLine(ev.MarginBounds);
+        }
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
@@ -134,7 +167,27 @@ namespace WeChatPrinter
                                 string infoStr = PrintHelper.GetPrinterStatus(fm1.printDocument1.PrinterSettings.PrinterName);
                                 if (infoStr == "准备就绪（Ready）")
                                 {
-                                    infomationStr = fm1.Test(imgUrl, i);
+                                    try
+                                    {
+                                        img = i;
+                                        PrintDocument pd = new PrintDocument();
+                                        pd.PrintPage += new PrintPageEventHandler
+                                           (pd_PrintPage);
+                                        pd.PrintController = new StandardPrintController();
+                                        Margins margins = new Margins(0, 0, 0, 0);
+                                        pd.DefaultPageSettings.Margins = margins;
+                                        pd.Print();
+                                        infomationStr = "发送打印指令成功";
+                                    }
+                                    catch (Exception ex){
+
+                                    }
+                                    finally
+                                    {
+
+                                    }
+
+                                    //infomationStr = fm1.Test(imgUrl, i);
                                     other.Name = "打印机状态";
                                     other.Code = 200;
                                     other.Description = "正常";
@@ -212,7 +265,27 @@ namespace WeChatPrinter
                                 string infoStr = PrintHelper.GetPrinterStatus(fm1.printDocument1.PrinterSettings.PrinterName);
                                 if (infoStr == "准备就绪（Ready）")
                                 {
-                                    infomationStr = fm1.Test(imgUrl, i);
+                                    //infomationStr = fm1.Test(imgUrl, i);
+                                    try
+                                    {
+                                        img = i;
+                                        PrintDocument pd = new PrintDocument();
+                                        pd.PrintPage += new PrintPageEventHandler
+                                           (pd_PrintPage);
+                                        pd.PrintController = new StandardPrintController();
+                                        Margins margins = new Margins(0, 0, 0, 0);
+                                        pd.DefaultPageSettings.Margins = margins;
+                                        pd.Print();
+                                        infomationStr = "发送打印指令成功";
+                                    }
+                                    catch (Exception ex)
+                                    {
+
+                                    }
+                                    finally
+                                    {
+
+                                    }
                                     other.Name = "打印机状态";
                                     other.Code = 200;
                                     other.Description = "正常";

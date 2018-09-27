@@ -35,7 +35,7 @@ namespace WeChatPrinter
         {
             InitializeComponent();
             //printDocument1.Print();
-            initPrinter();
+            //initPrinter();
             CheckForIllegalCrossThreadCalls = false;
             string myIpAddress = IpHelper.GetLocalIP();
             this.label3.Text = "ip地址： " + myIpAddress;
