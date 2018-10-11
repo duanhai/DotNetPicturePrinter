@@ -129,7 +129,7 @@ namespace WeChatPrinter
 
                 case 0:
 
-                    strRet = "准备就绪（Ready）";
+                    strRet = "准备就绪（Ready）|200";
 
                     break;
 
@@ -141,7 +141,7 @@ namespace WeChatPrinter
 
                 case 0x00400000:
 
-                    strRet = "被打开（Printer Door Open）";
+                    strRet = "被打开（Printer Door Open）|12";
 
                     break;
 
@@ -183,7 +183,7 @@ namespace WeChatPrinter
 
                 case 0x00000080:
 
-                    strRet = "脱机（Off Line）";
+                    strRet = "脱机（Off Line）|14";
 
                     break;
 
@@ -207,19 +207,19 @@ namespace WeChatPrinter
 
                 case 0x00000008:
 
-                    strRet = "塞纸（Paper Jam）";
+                    strRet = "塞纸（Paper Jam）|15";
 
                     break;
 
                 case 0x00000010:
 
-                    strRet = "打印纸用完（Paper Out）";
+                    strRet = "打印纸用完（Paper Out）|11";
 
                     break;
 
                 case 0x00000040:
 
-                    strRet = "纸张问题（Page Problem）";
+                    strRet = "纸张问题（Page Problem）|17";
 
                     break;
 
@@ -249,13 +249,13 @@ namespace WeChatPrinter
 
                 case 0x00020000:
 
-                    strRet = "墨粉不足（Toner Low）";
+                    strRet = "墨不足（Toner Low）|13";
 
                     break;
 
                 case 0x00100000:
 
-                    strRet = "需要用户干预（User Intervention）";
+                    strRet = "需要用户干预（User Intervention）|16";
 
                     break;
 
@@ -273,7 +273,7 @@ namespace WeChatPrinter
 
                 default:
 
-                    strRet = "未知状态（Unknown Status）";
+                    strRet = "未知状态（Unknown Status）|18";
 
                     break;
 

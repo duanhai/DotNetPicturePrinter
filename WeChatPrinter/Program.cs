@@ -195,9 +195,22 @@ namespace WeChatPrinter
                                 else
                                 {
                                     infomationStr = infoStr;
-                                    other.Code = 400;
-                                    other.Name = "打印机状态";
-                                    other.Description = "打印机状态异常，请检查";
+                                    string[] arr = infomationStr.Split('|');
+                                    if (arr.Length > 1)
+                                    {
+                                        string printerErrcode = arr[1];
+                                        int printCode = int.Parse(printerErrcode);
+                                        other.Code = printCode;
+                                        other.Name = "打印机状态";
+                                        other.Description = arr[0];
+                                    }
+                                    else
+                                    {
+                                       other.Code = 400;
+                                       other.Name = "打印机状态";
+                                       other.Description = "打印机状态异常，请检查";
+                                    }
+                   
                                 }
                             }
                         }
@@ -216,9 +229,20 @@ namespace WeChatPrinter
                     else if(request.RawUrl == "/api/status")
                     {
                         infomationStr = PrintHelper.GetPrinterStatus(fm1.printDocument1.PrinterSettings.PrinterName);
+                        string[] arr = infomationStr.Split('|');
+                        if(arr.Length > 1)
+                        {
+                            string printerErrcode = arr[1];
+                            int printCode = int.Parse(printerErrcode);
+                            other.Code = printCode;
+                            other.Name = "打印机状态";
+                            other.Description = arr[0];
+                        }else
+                        {
+                            other = null; 
+                        }
                         //infomationStr += DateTime.Now.ToString();
                         respTime = DateTime.Now.ToString();
-                        other = null;
                     }
 
 
@@ -263,7 +287,7 @@ namespace WeChatPrinter
                             else
                             {
                                 string infoStr = PrintHelper.GetPrinterStatus(fm1.printDocument1.PrinterSettings.PrinterName);
-                                if (infoStr == "准备就绪（Ready）")
+                                if (infoStr == "准备就绪（Ready）|200")
                                 {
                                     //infomationStr = fm1.Test(imgUrl, i);
                                     try
