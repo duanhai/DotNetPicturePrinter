@@ -148,6 +148,8 @@ namespace WeChatPrinter
                         {
                             return;
                         }
+                        fm1.Test(imgUrl);
+
                         //MessageBox.Show("imgUrl:\n" + imgUrl);
                         try
                         {
@@ -165,7 +167,7 @@ namespace WeChatPrinter
                             else
                             {
                                 string infoStr = PrintHelper.GetPrinterStatus(fm1.printDocument1.PrinterSettings.PrinterName);
-                                if (infoStr == "准备就绪（Ready）")
+                                if (infoStr == "准备就绪（Ready）|200")
                                 {
                                     try
                                     {
@@ -188,6 +190,7 @@ namespace WeChatPrinter
                                     }
 
                                     //infomationStr = fm1.Test(imgUrl, i);
+
                                     other.Name = "打印机状态";
                                     other.Code = 200;
                                     other.Description = "正常";
@@ -248,108 +251,8 @@ namespace WeChatPrinter
 
                     //MessageBox.Show(postParams.ToString());
                 }
-            }else if (request.HttpMethod == "GET")
-            {
-                var path = request.Url.LocalPath;
-                if (path.StartsWith("/") || path.StartsWith("\\"))
-                    path = path.Substring(1);
-                var sb = new StringBuilder("输入请求:");
-                sb.AppendLine(path);
-                var visit = path.Split(new char[] { '/', '\\' }, 2);
-                if (visit.Length > 0)
-                {
-
-
-                    var cmd = visit[0].ToLower();
-                    sb.AppendLine(string.Format("执行命令:{0}", cmd));
-                    if (cmd == "print")
-                    {
-                        //fm1.Test("http://192.168.1.239:8000/h1.jpg");
-                        string imgUrl = request.QueryString["imgUrl"];
-                        if (imgUrl == null)
-                        {
-                            return;
-                        }
-                        //MessageBox.Show("imgUrl:\n" + imgUrl);
-                        try
-                        {
-                            WebRequest webreq = WebRequest.Create(imgUrl);
-                            WebResponse webres = webreq.GetResponse();
-                            Stream stream = webres.GetResponseStream();
-                            Image i;
-                            i = Image.FromStream(stream);
-                            stream.Close();
-                            if (i == null)
-                            {
-                                infomationStr = "图片下载失败";
-                                return;
-                            }
-                            else
-                            {
-                                string infoStr = PrintHelper.GetPrinterStatus(fm1.printDocument1.PrinterSettings.PrinterName);
-                                if (infoStr == "准备就绪（Ready）|200")
-                                {
-                                    //infomationStr = fm1.Test(imgUrl, i);
-                                    try
-                                    {
-                                        img = i;
-                                        PrintDocument pd = new PrintDocument();
-                                        pd.PrintPage += new PrintPageEventHandler
-                                           (pd_PrintPage);
-                                        pd.PrintController = new StandardPrintController();
-                                        Margins margins = new Margins(0, 0, 0, 0);
-                                        pd.DefaultPageSettings.Margins = margins;
-                                        pd.Print();
-                                        infomationStr = "发送打印指令成功";
-                                    }
-                                    catch (Exception ex)
-                                    {
-
-                                    }
-                                    finally
-                                    {
-
-                                    }
-                                    other.Name = "打印机状态";
-                                    other.Code = 200;
-                                    other.Description = "正常";
-                                }
-                                else
-                                {
-                                    infomationStr = infoStr;
-                                    other.Code = 400;
-                                    other.Name = "打印机状态";
-                                    other.Description = "打印机状态异常，请检查";
-                                }
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            infomationStr = ex.Message;
-
-                        }
-
-
-
-                        //infomationStr += DateTime.Now.ToString();
-                        respTime = DateTime.Now.ToString();
-
-                    }
-                    else if (cmd == "status")
-                    {
-                        //MessageBox.Show(PrintHelper.GetPrinterStatus(fm1.printDocument1.PrinterSettings.PrinterName));
-                        infomationStr = PrintHelper.GetPrinterStatus(fm1.printDocument1.PrinterSettings.PrinterName);
-                        //infomationStr += DateTime.Now.ToString();
-                        respTime = DateTime.Now.ToString();
-
-                        other = null;
-
-                    }
-                    //sb.AppendLine(string.Format("另外有{0}个参数", visit.Length - 1 + request.QueryString.Count));
-                }
-                //var result = Encoding.UTF8.GetBytes(sb.ToString());
-
             }
+           
 
             response.KeepAlive = true;
 

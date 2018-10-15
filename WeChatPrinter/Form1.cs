@@ -134,15 +134,15 @@ namespace WeChatPrinter
         }
 
 
-        public string Test(string imgUrlstr,Image theImg=null)
+        public void Test(string imgUrlstr,Image theImg=null)
         {
-            if (imgUrlstr == "")
-            {
-                return "imgUrl 为空";
-            }
-            this.imgUrl = imgUrlstr;
-            this.img = theImg;
-            this.richTextBox1.Text = imgUrl;
+            //if (imgUrlstr == "")
+            //{
+            //    return "imgUrl 为空";
+            //}
+            //this.imgUrl = imgUrlstr;
+            //this.img = theImg;
+            this.richTextBox1.Text = imgUrlstr;
             //reloadPrint();
             //MessageBox.Show(PrintHelper.GetPrinterStatus(printDocument1.PrinterSettings.PrinterName));
 
@@ -150,14 +150,14 @@ namespace WeChatPrinter
 
             //执行该方法才会进入打印对应的回调函数
 
-            if (this.img!=null)
-            {
-                printDocument1.Print();
-                return "发送打印指令成功";
-            }else
-            {
-                return "打印机下载图片失败";
-            }
+            //if (this.img!=null)
+            //{
+            //    printDocument1.Print();
+            //    return "发送打印指令成功";
+            //}else
+            //{
+            //    return "打印机下载图片失败";
+            //}
 
         }
 
